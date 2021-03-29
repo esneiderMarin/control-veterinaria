@@ -1,0 +1,55 @@
+input[type="text"],
+select {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+input[type="submit"],
+button[type="cancel"] {
+  width: 100%;
+  align-self: center;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 8px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+input[type="submit"] {
+  background-color: #4caf50;
+}
+button[type="cancel"] {
+  background-color: #f80808;
+}
+
+input[type="submit"]:hover {
+  background-color: #45a049;
+}
+
+button[type="cancel"]:hover {
+  background-color: #f80808;
+}
+
+div {
+  border-radius: 5px;
+  background-color: #f2f2f2;
+  padding: 0px 20px 10px 10px;
+}
+
+.invalid-entry {
+  color: red;
+}
+
+.is-invalid-entry {
+  border: 1px solid red !important;
+}
+
+.disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}

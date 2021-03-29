@@ -1,0 +1,90 @@
+<div>
+  <button type="cancel" routerLink="/productos">Cancelar</button>
+  <form
+    #productoForm="ngForm"
+    (ngSubmit)="id ? guardar(productoForm) : agregar(productoForm)"
+  >
+    <label for="nombreProducto">Nombre del Producto</label>
+    <input
+      type="text"
+      id="nombreProducto"
+      name="nombreProducto"
+      placeholder="Nombre del Producto"
+      #nombreProducto="ngModel"
+      [(ngModel)]="producto.nombreProducto"
+      [ngClass]="{
+        'is-invalid-entry': nombreProducto.errors && nombreProducto.touched
+      }"
+      required
+      minlength="2"
+    />
+    <div
+      [hidden]="
+        nombreProducto.touched ? !nombreProducto.errors?.required : true
+      "
+      class="invalid-entry"
+    >
+      Nombre Del Producto Requerido
+    </div>
+    <div [hidden]="!nombreProducto.errors?.minlength" class="invalid-entry">
+      El nombre del producto debe contener al menos 2 caracteres
+    </div>
+
+    <label for="stock">Stock</label>
+    <input
+      type="number"
+      id="stock"
+      name="stock"
+      default="0"
+      #stock="ngModel"
+      [(ngModel)]="producto.stock"
+      [ngClass]="{
+        'is-invalid-entry': stock.errors && stock.touched
+      }"
+      required
+      min="0"
+      pattern="^[+]?\d+([.]\d+)?$"
+    />
+    <div
+      [hidden]="stock.touched ? !stock.errors?.required : true"
+      class="invalid-entry"
+    >
+      Stock Del Producto Requerido
+    </div>
+    <div [hidden]="!stock.errors?.pattern" class="invalid-entry">
+      Stock Del Producto debe ser positivo
+    </div>
+
+    <label for="valor">Valor</label>
+    <input
+      type="number"
+      id="valor"
+      name="valor"
+      default="0"
+      #valor="ngModel"
+      [(ngModel)]="producto.valor"
+      [ngClass]="{
+        'is-invalid-entry': valor.errors && valor.touched
+      }"
+      required
+      min="0"
+      pattern="^[+]?\d+([.]\d+)?$"
+    />
+    <div
+      [hidden]="valor.touched ? !valor.errors?.required : true"
+      class="invalid-entry"
+    >
+      Valor Del Producto Requerido
+    </div>
+    <div [hidden]="!valor.errors?.pattern" class="invalid-entry">
+      Valor Del Producto debe ser positivo
+    </div>
+
+    <input
+      type="submit"
+      value="Guardar"
+      [disabled]="!productoForm.valid"
+      [ngClass]="{ disabled: !productoForm.valid }"
+    />
+  </form>
+</div>

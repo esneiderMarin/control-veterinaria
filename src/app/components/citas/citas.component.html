@@ -1,0 +1,49 @@
+<!-- <input #desdeFecha="ngModel" type="date" [(ngModel)]="desdeFecha" />
+<input
+  type="date"
+  [(ngModel)]="hastaFecha"
+  min="{{ desdeFecha }}"
+  [disabled]="true"
+/> -->
+<flash-messages></flash-messages>
+<div>Desde: <input type="date" [(ngModel)]="desdeFecha" /></div>
+<div>
+  Hasta:
+  <input type="date" [(ngModel)]="hastaFecha" min="{{ desdeFecha }}" />
+</div>
+<div>
+  <input type="submit" value="Filtrar" (click)="filtrarPorFechas()" />
+  <input type="submit" value="Agregar Cita" routerLink="/citas/agregar" />
+</div>
+<table id="customers">
+  <tr>
+    <th>Cliente</th>
+    <th>Tipo Mascota</th>
+    <!-- <th>Fractura</th>
+    <th>Sangrado</th>
+    <th>Inconciencia</th>
+    <th>Camina</th> -->
+    <th>Fecha Ingreso</th>
+    <th>Score</th>
+    <th>Acciones</th>
+  </tr>
+  <ng-container *ngFor="let cita of citas; let i = index">
+    <tr *ngIf="cita.atendidoYN !== 'Si'">
+      <td>{{ cita.nombreCliente }}</td>
+      <td>{{ cita.tipoMascota }}</td>
+      <!-- <td>{{ cita.fracturaYN }}</td>
+          <td>{{ cita.sangradoYN }}</td>
+          <td>{{ cita.inconscienteYN }}</td>
+          <td>{{ cita.caminaYN }}</td> -->
+      <td>{{ cita.fechaIngreso | date: "medium" }}</td>
+      <td>{{ cita.prioridadesScore }}</td>
+      <td>
+        <input
+          type="submit"
+          value="Ver Más"
+          routerLink="/citas/editar/{{ cita.id }}"
+        /><input type="submit" value="Atender" (click)="atenderCita(cita)" />
+      </td>
+    </tr>
+  </ng-container>
+</table>

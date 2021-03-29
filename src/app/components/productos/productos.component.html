@@ -1,0 +1,44 @@
+<label for="nombreProducto">Busqueda</label>
+<input
+  type="text"
+  id="nombreProducto"
+  name="nombreProducto"
+  placeholder="Buscar Por Nombre del Producto"
+  #searchBox
+  (keyup)="[setSearchParams(searchBox.value), handleSearch($event)]"
+  (keypress)="handleSearch($event)"
+/>
+<div>
+  <input
+    type="submit"
+    value="Agregar Producto"
+    routerLink="/productos/agregar"
+  />
+</div>
+<table id="customers">
+  <tr>
+    <th>Producto</th>
+    <th>Valor</th>
+    <th>Stock</th>
+    <th>Acciones</th>
+  </tr>
+  <tr *ngFor="let producto of productos; let i = index">
+    <td>{{ producto.nombreProducto }}</td>
+    <td>{{ producto.valor | currency: "JPY" }}</td>
+    <td>{{ producto.stock }}</td>
+    <td>
+      <input
+        type="submit"
+        value="Editar"
+        routerLink="/productos/editar/{{ producto.id }}"
+      />
+      <input
+        type="submit"
+        value="Vender"
+        [disabled]="producto.stock == 0"
+        [ngClass]="{ disabled: producto.stock == 0 }"
+        (click)="venderProducto(producto)"
+      />
+    </td>
+  </tr>
+</table>

@@ -1,0 +1,28 @@
+<form action="/action_page.php" (submit)="login()" method="post">
+  <flash-messages></flash-messages>
+  <div class="title">
+    <h1>Ingresar</h1>
+  </div>
+
+  <div class="container">
+    <label for="email"><b>Usuario</b></label>
+    <input
+      type="email"
+      placeholder="Email"
+      name="email"
+      [(ngModel)]="email"
+      required
+    />
+
+    <label for="password"><b>Clave</b></label>
+    <input
+      type="password"
+      placeholder="Ingresa La Clave"
+      name="password"
+      [(ngModel)]="clave"
+      required
+    />
+
+    <button type="submit">Ingresar</button>
+  </div>
+</form>

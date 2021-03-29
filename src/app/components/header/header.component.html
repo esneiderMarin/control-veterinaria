@@ -1,0 +1,35 @@
+<div class="header">
+  <h1>
+    Healthy Pets
+    <div>
+      <input
+        *ngIf="isLoggedIn"
+        type="submit"
+        value="Citas"
+        routerLink="/citas"
+      />
+      <input
+        *ngIf="isLoggedIn"
+        type="submit"
+        value="Productos"
+        routerLink="/productos"
+      />
+      <button
+        *ngIf="isLoggedIn"
+        type="logout"
+        routerLink="/productos"
+        (click)="logout()"
+      >
+        Cerrar Sesiòn
+      </button>
+      <button *ngIf="!isLoggedIn" type="login" routerLink="/login">
+        Iniciar Sesiòn
+      </button>
+    </div>
+  </h1>
+
+  <!-- <i class="fab fa-accessible-icon"></i> -->
+</div>
+
+<!-- <app-citas style="float: center;"></app-citas>
+<app-citas style="float: center;"></app-citas> -->

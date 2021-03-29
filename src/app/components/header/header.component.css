@@ -1,0 +1,24 @@
+.header {
+  padding: 10px 16px;
+  background: rgb(20, 178, 206);
+  color: #f1f1f1;
+  margin: 0px 0px 10px 0px;
+  height: auto;
+}
+input[type="submit"],
+button[type="logout"],
+button[type="login"] {
+  background-color: rgb(20, 79, 206);
+  color: white;
+  padding: 14px 20px;
+  margin: 0px 8px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  border: 1px solid rgb(20, 101, 206);
+  float: right;
+}
+
+input[type="submit"]:hover {
+  background-color: rgb(20, 79, 206);
+}

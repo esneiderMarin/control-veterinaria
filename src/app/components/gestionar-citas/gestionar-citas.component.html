@@ -1,0 +1,162 @@
+<div>
+  <button type="cancel" routerLink="/citas">Cancelar</button>
+  <form
+    #citaForm="ngForm"
+    (ngSubmit)="id ? guardar(citaForm) : agregar(citaForm)"
+  >
+    <label for="nombreCliente">Nombre del Cliente</label>
+    <input
+      type="text"
+      id="nombreCliente"
+      name="nombreCliente"
+      placeholder="Nombre"
+      #nombre="ngModel"
+      [(ngModel)]="cita.nombreCliente"
+      [ngClass]="{ 'is-invalid-entry': nombre.errors && nombre.touched }"
+      required
+      minlength="2"
+    />
+    <div
+      [hidden]="nombre.touched ? !nombre.errors?.required : true"
+      class="invalid-entry"
+    >
+      Nombre Requerido
+    </div>
+    <div [hidden]="!nombre.errors?.minlength" class="invalid-entry">
+      El nombre debe contener al menos 2 caracteres
+    </div>
+
+    <label for="fracturaYN">Fractura</label>
+    <select
+      name="fracturaYN"
+      id="fracturaYN"
+      #fracturaYN="ngModel"
+      [(ngModel)]="cita.fracturaYN"
+      [ngClass]="{
+        'is-invalid-entry': fracturaYN.errors && fracturaYN.touched
+      }"
+      required
+    >
+      <option value="Si">
+        Si
+      </option>
+      <option value="No">
+        No
+      </option>
+    </select>
+    <div
+      [hidden]="fracturaYN.touched ? !fracturaYN.errors?.required : true"
+      class="invalid-entry"
+    >
+      Fractura requerida
+    </div>
+
+    <label for="sangradoYN">Sangrado</label>
+    <select
+      name="sangradoYN"
+      id="sangradoYN"
+      #sangradoYN="ngModel"
+      [(ngModel)]="cita.sangradoYN"
+      [ngClass]="{
+        'is-invalid-entry': sangradoYN.errors && sangradoYN.touched
+      }"
+      required
+    >
+      <option value="Si">
+        Si
+      </option>
+      <option value="No">
+        No
+      </option>
+    </select>
+    <div
+      [hidden]="sangradoYN.touched ? !sangradoYN.errors?.required : true"
+      class="invalid-entry"
+    >
+      Sangrado requerido
+    </div>
+
+    <label for="inconscienteYN">Inconsciente</label>
+    <select
+      name="inconscienteYN"
+      id="inconscienteYN"
+      #inconscienteYN="ngModel"
+      [(ngModel)]="cita.inconscienteYN"
+      [ngClass]="{
+        'is-invalid-entry': inconscienteYN.errors && inconscienteYN.touched
+      }"
+      required
+    >
+      <option value="Si">
+        Si
+      </option>
+      <option value="No">
+        No
+      </option>
+    </select>
+    <div
+      [hidden]="
+        inconscienteYN.touched ? !inconscienteYN.errors?.required : true
+      "
+      class="invalid-entry"
+    >
+      Inconsciente requerido
+    </div>
+
+    <label for="caminaYN">Camina</label>
+    <select
+      name="caminaYN"
+      id="caminaYN"
+      #caminaYN="ngModel"
+      [(ngModel)]="cita.caminaYN"
+      [ngClass]="{
+        'is-invalid-entry': caminaYN.errors && caminaYN.touched
+      }"
+      required
+    >
+      <option value="Si">
+        Si
+      </option>
+      <option value="No">
+        No
+      </option>
+    </select>
+    <div
+      [hidden]="caminaYN.touched ? !caminaYN.errors?.required : true"
+      class="invalid-entry"
+    >
+      Camina requerido
+    </div>
+
+    <label for="tipoMascota">Tipo de la mascota</label>
+    <input
+      type="text"
+      id="tipoMascota"
+      name="tipoMascota"
+      placeholder="Tipo de la mascota"
+      #tipoMascota="ngModel"
+      [(ngModel)]="cita.tipoMascota"
+      [ngClass]="{
+        'is-invalid-entry': tipoMascota.errors && tipoMascota.touched
+      }"
+      required
+      minlength="2"
+    />
+    <div
+      [hidden]="tipoMascota.touched ? !tipoMascota.errors?.required : true"
+      class="invalid-entry"
+    >
+      Tipo de mascota Requerido
+    </div>
+    <div [hidden]="!tipoMascota.errors?.minlength" class="invalid-entry">
+      El tipo de mascota debe contener al menos 2 caracteres
+    </div>
+
+    <input
+      type="submit"
+      value="Guardar"
+      [disabled]="!citaForm.valid"
+      [ngClass]="{ disabled: !citaForm.valid }"
+    />
+  </form>
+</div>

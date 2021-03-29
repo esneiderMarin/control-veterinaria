@@ -1,0 +1,75 @@
+#customers {
+  font-family: Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+  float: left;
+  margin-top: 5px;
+}
+
+#customers td,
+#customers th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+#customers tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+#customers tr:hover {
+  background-color: #ddd;
+}
+
+#customers th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: rgb(20, 79, 206);
+  color: white;
+}
+
+body,
+input {
+  font-family: "PT Sans", sans-serif;
+  font-size: 1.2rem;
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  margin: 8px;
+  width: 40%;
+}
+
+.alert-danger {
+  color: #4caf50;
+  background-color: aqua;
+}
+
+.disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+input[type="submit"]:hover {
+  background-color: rgb(20, 79, 206);
+}
+
+input[type="submit"] {
+  width: 45%;
+  background-color: rgb(20, 79, 206);
+  color: white;
+  padding: 6px 4px;
+  margin: 8px 8px 10px 10px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+input[type="text"],
+select {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
